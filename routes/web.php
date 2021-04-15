@@ -21,10 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // route for admin
 Route::prefix('/admin')
-        ->namespace('Admin')
-        ->group(function (){
-       Route::get('dashboard', 'AdminController@dashboard');
-});
+    ->namespace('Admin')
+    ->group(function () {
+        Route::match(['get', 'post'], '/', 'AdminController@login');
+        Route::get('dashboard', 'AdminController@dashboard');
+    });
 
 
 
