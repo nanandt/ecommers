@@ -26,6 +26,7 @@ Route::prefix('/admin')
         Route::match(['get', 'post'], '/', 'AdminController@login');
         Route::group(['middleware' => ['admin']], function () {
             Route::get('dashboard', 'AdminController@dashboard');
+            Route::get('logout', 'AdminController@logout');
         });
     });
 
